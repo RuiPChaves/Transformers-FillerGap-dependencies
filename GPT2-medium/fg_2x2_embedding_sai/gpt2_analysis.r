@@ -27,3 +27,63 @@ ggplot(aes(x = Condition, y = Surprisal, fill = Condition), data = data) +
     theme(legend.position = 'none') +
   ggsave("~/Desktop/gpt2_sai.eps",height=6,width=16)
 
+
+head(data)
+
+
+
+# Level1
+
+x <- data[data$EmbeddingLevel == 1,]
+y <- x[x$Condition == 'wh-gap' | x$Condition == 'nwh-ngap',]
+y$Condition <- factor(y$Condition)
+t.test(y$Surprisal ~ y$Condition)
+# sig
+
+x <- data[data$EmbeddingLevel == 2,]
+y <- x[x$Condition == 'wh-gap' | x$Condition == 'nwh-ngap',]
+y$Condition <- factor(y$Condition)
+t.test(y$Surprisal ~ y$Condition)
+# sig
+
+x <- data[data$EmbeddingLevel == 3,]
+y <- x[x$Condition == 'wh-gap' | x$Condition == 'nwh-ngap',]
+y$Condition <- factor(y$Condition)
+t.test(y$Surprisal ~ y$Condition)
+# sig
+
+x <- data[data$EmbeddingLevel == 4,]
+y <- x[x$Condition == 'wh-gap' | x$Condition == 'nwh-ngap',]
+y$Condition <- factor(y$Condition)
+t.test(y$Surprisal ~ y$Condition)
+# sig
+
+# -----------------------------
+
+x <- data[data$EmbeddingLevel == 1,]
+y <- x[x$Condition == 'wh-gap' | x$Condition == 'wh-ngap',]
+y$Condition <- factor(y$Condition)
+t.test(y$Surprisal ~ y$Condition)
+# nosig
+
+x <- data[data$EmbeddingLevel == 2,]
+y <- x[x$Condition == 'wh-gap' | x$Condition == 'wh-ngap',]
+y$Condition <- factor(y$Condition)
+t.test(y$Surprisal ~ y$Condition)
+# nosig
+
+x <- data[data$EmbeddingLevel == 3,]
+y <- x[x$Condition == 'wh-gap' | x$Condition == 'wh-ngap',]
+y$Condition <- factor(y$Condition)
+t.test(y$Surprisal ~ y$Condition)
+# nosig
+
+x <- data[data$EmbeddingLevel == 4,]
+y <- x[x$Condition == 'wh-gap' | x$Condition == 'wh-ngap',]
+y$Condition <- factor(y$Condition)
+t.test(y$Surprisal ~ y$Condition)
+# nearsig
+
+
+
+

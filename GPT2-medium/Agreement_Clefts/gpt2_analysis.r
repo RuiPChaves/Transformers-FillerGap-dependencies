@@ -22,11 +22,11 @@ summary(data)
 
 ggplot(aes(x = VerbCondition, y = Surprisal, fill = FillerCondition), data = data) +
  geom_boxplot() +
- xlab("Verb agreement across four levels of clausal embedding in 'it' clefts") +
+ xlab("") + #Verb agreement across four levels of clausal embedding in 'it' clefts") +
  facet_grid(.~EmbeddingLevel) +
   theme_bw(base_size=20) + 
  theme(legend.position = "bottom") +
-  ggsave("~/Desktop/gpt2_clefts.eps",height=6,width=16)
+  ggsave("~/Desktop/gpt2_clefts.eps",height=8,width=8)
 
 
 # Level1
@@ -34,11 +34,11 @@ ggplot(aes(x = VerbCondition, y = Surprisal, fill = FillerCondition), data = dat
 x <- data[data$EmbeddingLevel == 1,]
 y <- x[x$VerbCondition == 'V-pl',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 # Level2
 
@@ -49,28 +49,28 @@ t.test(y$Surprisal ~ y$FillerCondition)
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 # Level3
 
 x <- data[data$EmbeddingLevel == 3,]
 y <- x[x$VerbCondition == 'V-pl',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# near sig
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# near sig
 
 # Level4
 
 x <- data[data$EmbeddingLevel == 4,]
 y <- x[x$VerbCondition == 'V-pl',]
 t.test(y$Surprisal ~ y$FillerCondition)
-#  sig
+#  nsig
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 

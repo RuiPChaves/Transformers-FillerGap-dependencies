@@ -1,15 +1,11 @@
-# https://github.com/huggingface/pytorch-pretrained-BERT
-
 #!/usr/bin/python3
 import sys
 import torch
-from pytorch_pretrained_bert import GPT2Tokenizer, GPT2Model, GPT2LMHeadModel
+from pytorch_transformers import GPT2Config, GPT2Tokenizer, GPT2LMHeadModel
 
-# Load pre-trained model tokenizer (vocabulary)
-tokenizer = GPT2Tokenizer.from_pretrained('gpt2')
-
-# Load pre-trained model (weights)
-model = GPT2LMHeadModel.from_pretrained('gpt2')
+# Load pre-trained model and tokenizer 
+model = GPT2LMHeadModel.from_pretrained('gpt2-medium')
+tokenizer = GPT2Tokenizer.from_pretrained('gpt2-medium')
 
 
 # Read items from file
@@ -38,9 +34,9 @@ for s in text:
 
 	# Predict all tokens
 	with torch.no_grad():
-		predictions, past = model(tokens_tensor)
+		output = model(tokens_tensor)
 
-	predictions = torch.nn.functional.softmax(predictions,-1)
+	predictions = torch.nn.functional.softmax(output[0],-1)
 
 	# get the predictions 
 	result = predictions[0, -1, :]

@@ -25,7 +25,7 @@ ggplot(aes(x = VerbCondition, y = Surprisal, fill = FillerCondition), data = dat
  facet_grid(.~EmbeddingLevel) +
   theme_bw(base_size=20) + 
  theme(legend.position = "bottom") +
-  ggsave("~/Desktop/gpt2_qs.eps",height=6,width=16)
+  ggsave("~/Desktop/gpt2_qs.eps",height=8,width=8)
 
  
 
