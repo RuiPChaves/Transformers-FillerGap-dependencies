@@ -3,11 +3,10 @@ import sys
 import torch
 from pytorch_transformers import TransfoXLTokenizer, TransfoXLModel
 
-# Load pre-trained model tokenizer (vocabulary)
-tokenizer = TransfoXLTokenizer.from_pretrained('transfo-xl-wt103')
 
-# Load pre-trained model (weights)
+# Load pre-trained model and tokenizer 
 model = TransfoXLModel.from_pretrained('transfo-xl-wt103')
+tokenizer = TransfoXLTokenizer.from_pretrained('transfo-xl-wt103')
 
 # Read items from file
 with open('items_fg_emb_gpt2_nsai.csv', encoding='utf8') as f:

@@ -34,18 +34,18 @@ ggplot(aes(x = VerbCondition, y = Surprisal, fill = FillerCondition), data = dat
 x <- data[data$EmbeddingLevel == 1,]
 y <- x[x$VerbCondition == 'V-pl',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 # Level2
 
 x <- data[data$EmbeddingLevel == 2,]
 y <- x[x$VerbCondition == 'V-pl',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
@@ -60,7 +60,7 @@ t.test(y$Surprisal ~ y$FillerCondition)
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 # Level4
 
@@ -71,6 +71,6 @@ t.test(y$Surprisal ~ y$FillerCondition)
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 

@@ -3,12 +3,9 @@ import sys
 import torch
 from pytorch_transformers import TransfoXLTokenizer, TransfoXLModel
 
-# Load pre-trained model tokenizer (vocabulary)
-tokenizer = TransfoXLTokenizer.from_pretrained('transfo-xl-wt103')
-
-# Load pre-trained model (weights)
+# Load pre-trained model and tokenizer 
 model = TransfoXLModel.from_pretrained('transfo-xl-wt103')
-
+tokenizer = TransfoXLTokenizer.from_pretrained('transfo-xl-wt103')
 
 # Read items from file
 with open('items_agr_cls_gpt2.csv', encoding='utf8') as f:
@@ -42,7 +39,7 @@ for s in text:
 
 	# get the predictions 
 	result = predictions[0, -1, :]
-	word_id_sg = tokenizer.encode('is')[0]
+	word_id_sg = tokenizer.encode('was')[0]
 	word_id_pl = tokenizer.encode('were')[0]
 
 	score_sg = result[word_id_sg]

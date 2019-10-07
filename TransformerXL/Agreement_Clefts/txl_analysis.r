@@ -49,7 +49,7 @@ t.test(y$Surprisal ~ y$FillerCondition)
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# nonsig
+# nsig
 
 # Level3
 

@@ -23,7 +23,7 @@ data <- data[which(data$EmbeddingLevel == "1"),]
 
 ggplot(aes(x = Condition, y = Surprisal, fill = Condition), data = data) +
  geom_boxplot() +
- xlab("Conditions across four levels of clausal embedding") +
+ xlab("Conditions") +
  # facet_grid(.~EmbeddingLevel) +
    theme_bw(base_size=18)  +
     theme(legend.position = 'none') +
