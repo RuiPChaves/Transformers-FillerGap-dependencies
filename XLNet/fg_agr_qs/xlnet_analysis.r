@@ -45,29 +45,29 @@ t.test(y$Surprisal ~ y$FillerCondition)
 x <- data[data$EmbeddingLevel == 2,]
 y <- x[x$VerbCondition == 'V-pl',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 # Level3
 
 x <- data[data$EmbeddingLevel == 3,]
 y <- x[x$VerbCondition == 'V-pl',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)
-# sig
+# nsig
 
 # Level4
 
 x <- data[data$EmbeddingLevel == 4,]
 y <- x[x$VerbCondition == 'V-pl',]
 t.test(y$Surprisal ~ y$FillerCondition)
-#  not sig
+#  nsig
 
 y <- x[x$VerbCondition == 'V-sg',]
 t.test(y$Surprisal ~ y$FillerCondition)

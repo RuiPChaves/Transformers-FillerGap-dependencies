@@ -6,10 +6,8 @@ import numpy as np
 
 
 # Load pre-trained model and tokenizer 
-config = XLNetConfig.from_pretrained('xlnet-large-cased')
+model = XLNetLMHeadModel.from_pretrained('xlnet-large-cased')
 tokenizer = XLNetTokenizer.from_pretrained('xlnet-large-cased')
-model = XLNetLMHeadModel(config)
-model.eval()
 
 
 # Read items from file
