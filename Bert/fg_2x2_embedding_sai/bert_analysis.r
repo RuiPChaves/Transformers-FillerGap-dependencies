@@ -11,7 +11,7 @@ library(ggplot2)
 
 options(scipen=999)
 
-data <- read.delim("out_fg_emb_sai_combined_wordfinal_punct.txt",header=TRUE,sep =",")
+data <- read.delim("out_fg_emb_sai_combined.txt",header=TRUE,sep =",")
 summary(data)
 
 

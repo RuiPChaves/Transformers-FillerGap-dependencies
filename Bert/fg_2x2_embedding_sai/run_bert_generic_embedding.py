@@ -1,29 +1,21 @@
-# To install:
-# sudo python3 -m pip install pytorch-pretrained-bert
-
 #!/usr/bin/python3
 import torch
-from pytorch_pretrained_bert import BertForMaskedLM,tokenization
+from pytorch_transformers import BertForMaskedLM, BertTokenizer
 import sys
 import torch.nn.functional as F
 import numpy as np
 
-
 # Load pre-trained model and tokenizer 
-#model_name = 'bert-base-uncased'
-model_name = 'bert-large-uncased'
-
-bert=BertForMaskedLM.from_pretrained(model_name)
-tokenizer=tokenization.BertTokenizer.from_pretrained(model_name)
-bert.eval()
+model = BertForMaskedLM.from_pretrained('bert-large-uncased')
+tokenizer = BertTokenizer.from_pretrained('bert-large-uncased')
 
 # Read items from file
-with open('items_fg_emb_sai_combined_wordfinal_punct.csv', encoding='utf8') as f:
+with open('items_fg_emb_sai_combined.csv', encoding='utf8') as f:
 	text = f.read().splitlines()
 
 # Write to file
 orig_stdout = sys.stdout
-f = open('out_fg_emb_sai_combined_wordfinal_punct.txt', 'w')
+f = open('out_fg_emb_sai_combined.txt', 'w')
 sys.stdout = f
 
 # Write Column Headers
@@ -50,10 +42,14 @@ for s in text:
 
 	# If you have a GPU, put everything on cuda
 	tens = tens.to('cuda')
-	bert.to('cuda')
+	model.to('cuda')
 
-	# Determine activation of masked position
-	res = bert(tens)[0,masked_index]
+	# Determine resulting activation of masked position
+	output = model(tens)
+	res = output[0]
+
+	# Determine resulting activation of masked position
+	res = res[0,masked_index]
 
 	# Softmax
 	res = torch.nn.functional.softmax(res,-1)

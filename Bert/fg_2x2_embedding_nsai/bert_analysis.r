@@ -11,7 +11,7 @@ library(ggplot2)
 
 options(scipen=999)
 
-data <- read.delim("out_fg_emb_nsai_combined_punct.txt",header=TRUE,sep =",")
+data <- read.delim("out_fg_emb_nsai_combined_wordfinal_punct.txt",header=TRUE,sep =",")
 summary(data)
 
 
@@ -19,7 +19,7 @@ summary(data)
 #### Plot results
 ####
 
-#data_1 <- data[which(data$EmbeddingLevel == 1),]
+data_1 <- data[which(data$EmbeddingLevel == 1),]
 
 
 ggplot(aes(x = Condition, y = Surprisal, fill = Condition), data = data) +
